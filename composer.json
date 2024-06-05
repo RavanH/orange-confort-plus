@@ -1,0 +1,12 @@
+{
+  "name": "ravanh/orange-confort-plus",
+  "description": "Add the Orange Confort+ accessibility toolbar to your WordPress site.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "version": "1.0",
+  "authors": [
+    {
+      "name": "Rolf Allard van Hagen"
+    }
+  ]
+}

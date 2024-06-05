@@ -1,4 +1,4 @@
-=== Orange Confort+ accessibility toolbar for WordPress ===
+=== Orange Confort+ ===
 Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
 Tags: accessibility, orange confort

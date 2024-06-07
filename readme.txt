@@ -22,7 +22,7 @@ Add the Orange Confort+ accessibility toolbar to your WordPress site.
 * Colors: modify foreground and background colors.
 * Behavior: direct access to main content on page load, automatic selection of page clickable elements with a user defined delay, page scrolling on simple user on hover.
 
-NB: Orange Confort+ does **not** fix website accessibility issues: blocking points still stay blocking points, with or without Orange Confort+.
+NB: Orange Confort+ does **not** fix website accessibility issues: blocking points stay blocking points, with or without Orange Confort+.
 
 = Privacy / GDPR =
 

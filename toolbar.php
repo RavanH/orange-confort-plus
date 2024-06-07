@@ -3,7 +3,7 @@
  * Plugin Name: Orange Confort+
  * Plugin URI: https://status301.net/wordpress-plugins/orange-confort-plus/
  * Description: Add the Orange Confort+ accessibility toolbar to your WordPress site.
- * Version: 0.2
+ * Version: 0.3-alpha1
  * Text Domain: orange-confort-plus
  * Requires at least: 4.4
  * Requires PHP: 5.6
@@ -17,7 +17,7 @@ namespace OCplus;
 
 \defined( '\WPINC' ) || \die;
 
-const VERSION = '0.2';
+const VERSION        = '0.3-alpha1';
 const SCRIPT_VERSION = '4.3.3';
 
 /**
@@ -46,3 +46,39 @@ function custom_css() {
 }
 
 \add_action( 'wp_footer', __NAMESPACE__ . '\custom_css', 99 );
+
+/**
+ * Complianz integration.
+ *
+ * @param array $data Intergated plugins data.
+ *
+ * @return array
+ */
+function complianz_integration( $data ) {
+	$data['orange-confort-plus'] = array(
+		'constant_or_function' => __NAMESPACE__ . '\VERSION',
+		'label'                => 'Orange Confort+',
+		'firstparty_marketing' => false,
+	);
+
+	return $data;
+}
+
+\add_filter( 'cmplz_integrations', __NAMESPACE__ . '\complianz_integration' );
+
+/**
+ * Locate Complianz integration file.
+ *
+ * @param string $path   Path string.
+ * @param string $plugin Plugin slug.
+ *
+ * @return string
+ */
+function complianz_integration_path( $path, $plugin ) {
+	if ( 'orange-confort-plus' === $plugin ) {
+		return __DIR__ . '/complianz.php';
+	}
+	return $path;
+}
+
+\add_filter( 'cmplz_integration_path', __NAMESPACE__ . '\complianz_integration_path', 10, 2 );

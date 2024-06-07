@@ -26,10 +26,12 @@ NB: Orange Confort+ does **not** fix website accessibility issues: blocking poin
 
 = Privacy / GDPR =
 
-This plugin does not collect any user or visitor data. The Orange Confort+ accessibility toolbar sets two browser cookies, used for storing user selected accessibility options.
+This plugin does not collect any user or visitor data. The Orange Confort+ accessibility toolbar sets two functional browser cookies, used for storing user selected accessibility options.
 
-* UCI42 - Stores user toolbar settings; domain specific; expires after 1 year.
-* uci-bl - Stores toolbar on/off toggle; domain specific; session only.
+* UCI42 - Stores user toolbar settings; set at page load; domain specific; expires after 1 year.
+* uci-bl - Stores toolbar on/off toggle; set when toolbar toggle is used; domain specific; session only.
+
+Please update your GDPR/Cookie Consent solution to reflect this information. To prevent the UCI42 cookie being set before functional consent is given,
 
 == Screenshots ==
 
@@ -40,6 +42,10 @@ This plugin does not collect any user or visitor data. The Orange Confort+ acces
 5. Advanced behavior tools and options.
 
 == Changelog ==
+
+= 0.2 =
+20240607
+* Button position: bottom screen (fixed)
 
 = 0.1 =
 20240605

@@ -2,10 +2,8 @@
 Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
 Tags: accessibility, orange confort
-Requires at least: 4.4
-Requires PHP: 5.6
 Tested up to: 6.5
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,12 +24,14 @@ NB: Orange Confort+ does **not** fix website accessibility issues: blocking poin
 
 = Privacy / GDPR =
 
-This plugin does not collect any user or visitor data. The Orange Confort+ accessibility toolbar sets two functional browser cookies, used for storing user selected accessibility options.
+This plugin does not collect any user or visitor data. The Orange Confort+ accessibility toolbar uses two functional browser cookies, used for storing user selected accessibility options.
 
 * UCI42 - Stores user toolbar settings; set at page load; domain specific; expires after 1 year.
 * uci-bl - Stores toolbar on/off toggle; set when toolbar toggle is used; domain specific; session only.
 
-Please update your GDPR/Cookie Consent solution to reflect this information. To prevent the UCI42 cookie being set before functional consent is given,
+Please update your site's GDPR/Cookie Consent documentation to reflect this information.
+
+This plugin is compatible with any Cookie Consent plugin that supports the WP Consent API. At this time, the WP Consent API proposal has not been merged into core yet, so you'll need to install and acivate the [WP Consent API](https://wordpress.org/plugins/wp-consent-api/) plugin.
 
 == Screenshots ==
 

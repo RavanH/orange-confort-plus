@@ -1,7 +1,7 @@
 === Orange Confort+ ===
 Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
-Tags: accessibility, orange confort
+Tags: accessibility, orange confort, confort+, WP Consent API
 Tested up to: 6.5
 Stable tag: 0.3
 License: GPLv2 or later
@@ -20,7 +20,7 @@ Add the Orange Confort+ accessibility toolbar to your WordPress site.
 * Colors: modify foreground and background colors.
 * Behavior: direct access to main content on page load, automatic selection of page clickable elements with a user defined delay, page scrolling on simple user on hover.
 
-NB: Orange Confort+ does **not** fix website accessibility issues: blocking points still stay blocking points, with or without Orange Confort+.
+NB: Orange Confort+ does **not** fix website accessibility issues: blocking points stay blocking points, with or without Orange Confort+.
 
 = Privacy / GDPR =
 
@@ -42,6 +42,10 @@ This plugin is compatible with any Cookie Consent plugin that supports the WP Co
 5. Advanced behavior tools and options.
 
 == Changelog ==
+
+= 0.3 =
+20240607
+* WP Consent API compatibility
 
 = 0.2 =
 20240607

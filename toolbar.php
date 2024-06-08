@@ -67,6 +67,24 @@ function complianz_integration( $data ) {
 \add_filter( 'cmplz_integrations', __NAMESPACE__ . '\complianz_integration' );
 
 /**
+ * Add services to the list of detected items, so it will get set as default, and will be added to the notice about it
+ *
+ * @param array $services Services array.
+ *
+ * @return array
+ */
+function complianz_detected_services( $services ) {
+
+	if ( ! in_array( 'orange-confort-plus', $services, true ) ) {
+		$services[] = 'orange-confort-plus';
+	}
+
+	return $services;
+}
+
+\add_filter( 'cmplz_detected_services', __NAMESPACE__ . '\complianz_detected_services' );
+
+/**
  * Locate Complianz integration file.
  *
  * @param string $path   Path string.

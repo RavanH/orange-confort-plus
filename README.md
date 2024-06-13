@@ -22,6 +22,6 @@ This plugin does not collect any user or visitor data. The Orange Confort+ acces
 * UCI42 - Stores user toolbar settings; set at page load; domain specific; expires after 1 year.
 * uci-bl - Stores toolbar on/off toggle; set when toolbar toggle is used; domain specific; session only.
 
-Please update your GDPR/Cookie Consent solution to reflect this information. To prevent the UCI42 cookie being set before functional consent is given,
+Please update your site's GDPR/Cookie Consent documentation to reflect this information.
 
-
+This plugin is compatible with any Cookie Consent plugin that supports the WP Consent API. At this time, the WP Consent API proposal has not been merged into core yet, so you'll need to install and acivate the [WP Consent API](https://wordpress.org/plugins/wp-consent-api/) plugin.

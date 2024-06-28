@@ -13,10 +13,10 @@
 
 namespace OCplus;
 
-\defined( 'WPINC' ) || \die;
+\defined( '\WPINC' ) || \die;
 
-\define( __NAMESPACE__ . '\VERSION', '0.4' );
-\define( __NAMESPACE__ . '\SCRIPT_VERSION', '4.3.3' );
+const VERSION        = '0.4';
+const SCRIPT_VERSION = '4.3.5';
 
 /**
  * Enqueue main script.

@@ -3,7 +3,7 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
 Tags: accessibility, orange confort, confort+, WP Consent API
 Tested up to: 6.5
-Stable tag: 0.4
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,21 @@ Orange Confort+ does **not** fix website accessibility issues: blocking points s
 * Toolbar and button position can be set on Settings > Reading.
 * Compatible with many Cookie Consent plugins when used in combination with [WP Consent API](https://wordpress.org/plugins/wp-consent-api/)
 * WordPress Multisite compatible.
+* Custom button position with a shortcode.
+
+= Shortcode =
+
+A shortcode **ocplus_button** is available to allow giving the Orange Confort+ button a custom location.
+
+	[ocplus_button style="outline" color="black" background_color="" /]
+
+Add this shortcode (header, sidebar or footer) where you wish the button to appear. The shortcode will generate a Button block with one button "Confort +".
+
+These parameters are available to make it match your site theme more closely:
+
+* **style** for the button style; can be set to fill or outline (default).
+* **color** set the text color and (if applicable) outline color (default black, note that the + sign will remain orange)
+* **bgcolor** sets the button background color.
 
 = Privacy / GDPR =
 
@@ -48,6 +63,11 @@ This plugin is compatible with any Cookie Consent plugin that supports the WP Co
 5. Advanced behavior tools and options.
 
 == Changelog ==
+
+= 0.5 =
+20240629
+* New toolbar position: Window top
+* Shortcode with parameters style, color, bgcolor for custom button position.
 
 = 0.4 =
 20240609

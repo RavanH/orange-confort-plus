@@ -21,8 +21,8 @@ document.addEventListener("wp_listen_for_consent_change", function (e) {
 
 // Append our toolbar script.
 function appendOCplusToolbar() {
-    var script   = document.createElement("script");
-    script.type  = "text/javascript";
-    script.src   = hebergementFullPath + "js/toolbar.min.js";
+    var script  = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = hebergementFullPath + "js/toolbar.min.js";
     document.body.appendChild(script);
 }

@@ -25,7 +25,7 @@ class Toolbar {
 		}
 
 		$script  = '/* Orange Confort+ accessibility toolbar for WordPress ' . VERSION . ' ( RavanH - http://status301.net/wordpress-plugins/orange-confort-plus/ ) */' . \PHP_EOL;
-		$script .= 'var hebergementFullPath = "' . \plugins_url( 'vendor/', __DIR__ ) . '", accessibilitytoolbar_custom = { idLinkModeContainer : "' . apply_filters( 'ocplus_container_id', 'ocplus_button' ) . '", cssLinkModeClassName : "wp-block-button__link wp-element-button ocplus-custom-button" };';
+		$script .= 'var hebergementFullPath = "' . \plugins_url( 'vendor/', __DIR__ ) . '", accessibilitytoolbar_custom = { idLinkModeContainer : "' . apply_filters( 'ocplus_container_id', 'ocplus_button' ) . '", cssLinkModeClassName : "wp-block-button__link wp-element-button" };';
 
 		\wp_add_inline_script( 'orange-confort-plus', $script, 'before' );
 	}

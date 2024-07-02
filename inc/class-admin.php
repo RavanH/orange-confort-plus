@@ -1,6 +1,6 @@
 <?php
 /**
- * Orange Confort+ admin.
+ * Orange Confort+ admin class.
  *
  * @package Orange Confort+
  *
@@ -9,34 +9,41 @@
 
 namespace OCplus;
 
-\defined( 'WPINC' ) || \die;
-
-// Register setting.
-\register_setting(
-	'reading',
-	'oc_plus_position',
-	array(
-		'type'    => 'array',
-		'default' => array(),
-	),
-);
-
-// Add field.
-\add_settings_field(
-	'oc_plus',
-	\__( 'Orange Confort+', 'orange-confort-plus' ),
-	__NAMESPACE__ . '\settings_field',
-	'reading'
-);
-
 /**
- * Settings field.
+ * Admin class handles settings and fields.
  */
-function settings_field() {
-	$settings = (array) \get_option( 'oc_plus_position' );
-	$button   = isset( $settings['button'] ) ? $settings['button'] : '';
-	$toolbar  = isset( $settings['toolbar'] ) ? $settings['toolbar'] : '';
-	?>
+class Admin {
+	/**
+	 * Settings.
+	 */
+	public static function settings() {
+		// Register setting.
+		\register_setting(
+			'reading',
+			'oc_plus_position',
+			array(
+				'type'    => 'array',
+				'default' => array(),
+			),
+		);
+
+		// Add field.
+		\add_settings_field(
+			'oc_plus',
+			\__( 'Orange Confort+', 'orange-confort-plus' ),
+			array( __CLASS__, 'settings_field' ),
+			'reading'
+		);
+	}
+
+	/**
+	 * Settings field.
+	 */
+	public static function settings_field() {
+		$settings = (array) \get_option( 'oc_plus_position' );
+		$button   = isset( $settings['button'] ) ? $settings['button'] : '';
+		$toolbar  = isset( $settings['toolbar'] ) ? $settings['toolbar'] : '';
+		?>
 <fieldset id="oc_plus">
 	<legend class="screen-reader-text">
 		<?php \esc_html_e( 'Orange Confort+', 'orange-confort-plus' ); ?>
@@ -66,5 +73,6 @@ function settings_field() {
 		<?php \esc_html_e( 'Please note: not all toolbar positions may work well in combination with a custom button position.', 'orange-confort-plus' ); ?>
 	</p>
 </fieldset>
-	<?php
+		<?php
+	}
 }

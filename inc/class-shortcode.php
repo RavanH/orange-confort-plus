@@ -21,28 +21,22 @@ class Shortcode {
 	public static function render( $atts = array() ) {
 		$atts = \shortcode_atts(
 			array(
-				'style'   => 'outline',
-				'color'   => '',
+				'style'   => '',
+				'color'   => 'white',
 				'bgcolor' => '',
 			),
 			$atts
 		);
 
-		$outline = 'outline' === $atts['style'] ? ' is-style-outline' : '';
-		$styles  = array();
-		$style   = '';
-
 		if ( ! empty( $atts['color'] ) ) {
 			$styles[] = 'color:' . esc_attr( $atts['color'] );
 		}
-		if ( ! empty( $atts['color'] ) ) {
+		if ( ! empty( $atts['bgcolor'] ) ) {
 			$styles[] = 'background-color:' . esc_attr( $atts['bgcolor'] );
 		}
-		if ( ! empty( $styles ) ) {
-			$style  = '<style>#uci_link{';
-			$style .= implode( ';', $styles );
-			$style .= '}</style>';
-		}
+
+		$outline = ! empty( $atts['style'] ) ? ' is-style-' . $atts['style'] : '';
+		$style   = isset( $styles ) ? '<style>#uci_link{' . implode( ';', $styles ) . '}</style>' : '';
 
 		return '<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex"><div class="wp-block-button' . $outline . '" id="ocplus_button"></div></div>' . $style;
 	}

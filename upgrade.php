@@ -9,7 +9,7 @@
 
 namespace OCplus;
 
-\defined( 'WPINC' ) || \die;
+\defined( 'WPINC' ) || die;
 
 /**
  * Upgrade plugin data.

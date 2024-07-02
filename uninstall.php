@@ -9,8 +9,7 @@
 
 namespace OCplus;
 
-// Exit if uninstall not called from WordPress.
-\defined( 'WPINC' ) || \die;
+\defined( 'WPINC' ) || die;
 
 // Check if it is a multisite and not a large one.
 if ( \is_multisite() ) {

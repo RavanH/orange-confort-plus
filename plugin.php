@@ -13,10 +13,12 @@
 
 namespace OCplus;
 
-\defined( '\WPINC' ) || \die;
+\defined( 'WPINC' ) || die;
 
 const VERSION        = '0.6';
 const SCRIPT_VERSION = '4.3.5';
+
+\spl_autoload_register( __NAMESPACE__ . '\autoload' );
 
 \add_action( 'init', __NAMESPACE__ . '\maybe_upgrade' );
 \add_action( 'admin_init', array( __NAMESPACE__ . '\Admin', 'settings' ) );
@@ -47,33 +49,29 @@ function maybe_upgrade() {
 }
 
 /**
- * XML Sitemap Manager Autoloader.
+ * Autoloader.
  *
- * @since 0.5
+ * @since 0.6
  *
  * @param string $class_name The fully-qualified class name.
- *
- * @return void
  */
 function autoload( $class_name ) {
 	// Skip this if not in our namespace.
-	if ( 0 !== strpos( $class_name, __NAMESPACE__ ) ) {
+	if ( 0 !== \strpos( $class_name, __NAMESPACE__ ) ) {
 		return;
 	}
 
 	// Replace namespace separators with directory separators in the relative
 	// class name, prepend with class-, append with .php, build our file path.
-	$class_name = str_replace( __NAMESPACE__, 'inc', $class_name );
-	$class_name = strtolower( $class_name );
-	$path_array = explode( '\\', $class_name );
-	$file_name  = array_pop( $path_array );
+	$class_name = \str_replace( __NAMESPACE__, 'inc', $class_name );
+	$class_name = \strtolower( $class_name );
+	$path_array = \explode( '\\', $class_name );
+	$file_name  = \array_pop( $path_array );
 	$file_name  = 'class-' . $file_name . '.php';
-	$file       = __DIR__ . DIRECTORY_SEPARATOR . implode( DIRECTORY_SEPARATOR, $path_array ) . DIRECTORY_SEPARATOR . $file_name;
+	$file       = __DIR__ . DIRECTORY_SEPARATOR . \implode( DIRECTORY_SEPARATOR, $path_array ) . DIRECTORY_SEPARATOR . $file_name;
 
 	// If the file exists, inlcude it.
-	if ( file_exists( $file ) ) {
+	if ( \file_exists( $file ) ) {
 		include $file;
 	}
 }
-
-spl_autoload_register( __NAMESPACE__ . '\autoload' );

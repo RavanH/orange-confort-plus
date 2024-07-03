@@ -3,7 +3,7 @@
  * Plugin Name: Orange Confort+
  * Plugin URI: https://status301.net/wordpress-plugins/orange-confort-plus/
  * Description: Add the Orange Confort+ accessibility toolbar to your WordPress site.
- * Version: 0.6
+ * Version: 0.7-alpha1
  * Text Domain: orange-confort-plus
  * Author: RavanH
  * Author URI: https://status301.net/
@@ -75,3 +75,9 @@ function autoload( $class_name ) {
 		include $file;
 	}
 }
+
+function block_registration() {
+	\register_block_type( __DIR__ . '/button' );
+}
+
+\add_action( 'init', __NAMESPACE__ . '\block_registration' );

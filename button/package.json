@@ -1,0 +1,12 @@
+{
+    "name": "@orange-confort-plus/button",
+    "description": "",
+    "version": "0.1",
+    "scripts": {
+        "plugin-zip": "wp-scripts plugin-zip"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^27.8.0"
+    },
+    "files": [ "*" ]
+}

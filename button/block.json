@@ -1,32 +1,133 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "block-development-examples/block-supports-6aa4dd",
-	"version": "0.1.0",
-	"title": "Block Supports 6aa4dd",
+	"name": "orange-confort-plus/button",
+	"title": "Irange Confort + Button",
 	"category": "widgets",
+	"description": "Prompt visitors to take action with a button-style link.",
+	"keywords": [ "link" ],
+	"textdomain": "default",
 	"attributes": {
-		"content": {
+		"tagName": {
 			"type": "string",
-			"source": "html",
-			"selector": "p"
+			"enum": [ "a", "button" ],
+			"default": "a"
+		},
+		"type": {
+			"type": "string",
+			"default": "button"
+		},
+		"textAlign": {
+			"type": "string"
+		},
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "href",
+			"__experimentalRole": "content"
+		},
+		"title": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a,button",
+			"attribute": "title",
+			"__experimentalRole": "content"
+		},
+		"text": {
+			"type": "rich-text",
+			"source": "rich-text",
+			"selector": "a,button",
+			"__experimentalRole": "content"
+		},
+		"linkTarget": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "target",
+			"__experimentalRole": "content"
+		},
+		"rel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "rel",
+			"__experimentalRole": "content"
+		},
+		"placeholder": {
+			"type": "string"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"gradient": {
+			"type": "string"
+		},
+		"width": {
+			"type": "number"
 		}
 	},
-	"example": {
-		"attributes": {
-			"content": "Hello world"
-		}
-	},
-	"textdomain": "block-development-examples",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
-	"style": "file:./style.css",
-	"keywords": [ "6aa4dd" ],
 	"supports": {
+		"anchor": false,
+		"align": [ "left", "right", "center" ],
+		"alignWide": false,
 		"color": {
-			"text": true,
-			"link": true,
-			"background": true
+			"__experimentalSkipSerialization": true,
+			"gradients": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		},
+		"reusable": false,
+		"shadow": {
+			"__experimentalSkipSerialization": true
+		},
+		"spacing": {
+			"__experimentalSkipSerialization": true,
+			"padding": [ "horizontal", "vertical" ],
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalSkipSerialization": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"__experimentalSelector": ".wp-block-button .wp-block-button__link",
+		"interactivity": {
+			"clientNavigation": true
 		}
-	}
+	},
+	"styles": [
+		{ "name": "fill", "label": "Fill", "isDefault": true },
+		{ "name": "outline", "label": "Outline" }
+	],
+	"editorStyle": "wp-block-button-editor",
+	"style": "wp-block-button"
 }

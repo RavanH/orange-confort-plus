@@ -76,8 +76,14 @@ function autoload( $class_name ) {
 	}
 }
 
+/**
+ * Button block.
+ *
+ * @since 0.7
+ */
 function block_registration() {
 	\register_block_type( __DIR__ . '/button' );
+	\register_block_type( __DIR__ . '/toolbar-button' );
 }
 
 \add_action( 'init', __NAMESPACE__ . '\block_registration' );

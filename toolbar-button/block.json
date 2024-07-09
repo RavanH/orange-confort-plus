@@ -1,0 +1,8 @@
+{
+	"apiVersion": 3,
+	"title": "Orange Confort+ button",
+	"name": "orange-confort-plus/toolbar-button",
+	"category": "widgets",
+	"icon": "universal-access",
+	"editorScript": "file:./block.js"
+}

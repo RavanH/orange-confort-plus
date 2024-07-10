@@ -82,8 +82,10 @@ function autoload( $class_name ) {
  * @since 0.7
  */
 function block_registration() {
-	\register_block_type( __DIR__ . '/button' );
-	\register_block_type( __DIR__ . '/toolbar-button' );
+	$dirs = \glob( __DIR__ . '/blocks/*', GLOB_ONLYDIR );
+	foreach ( $dirs as $dir ) {
+		\register_block_type( $dir );
+	}
 }
 
 \add_action( 'init', __NAMESPACE__ . '\block_registration' );

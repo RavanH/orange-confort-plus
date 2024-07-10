@@ -2,9 +2,9 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "orange-confort-plus/button",
-	"title": "Irange Confort + Button",
+	"title": "Orange Confort + Button",
 	"category": "widgets",
-	"description": "Prompt visitors to take action with a button-style link.",
+	"description": "Allow visitors to open the Orange Confort+ toolbar with a button-style link.",
 	"keywords": [ "link" ],
 	"textdomain": "default",
 	"attributes": {

@@ -21,11 +21,12 @@ Orange Confort+ does **not** fix website accessibility issues: blocking points s
 * Layout: cancel layout, force left-aligned text, number list items, customize links appearance, display a reading mask.
 * Colors: modify foreground and background colors.
 * Behavior: direct access to main content on page load, automatic selection of page clickable elements with a user defined delay, page scrolling on simple user on hover.
+* Toolbar available in French, English, Polish and Spanish, defaulting to the site language.
 
 = Plugin features =
 
 * Toolbar and button position can be set on Settings > Reading.
-* Compatible with many Cookie Consent plugins when used in combination with [WP Consent API](https://wordpress.org/plugins/wp-consent-api/)
+* Compatible with many Cookie Consent plugins when via [WP Consent API](https://wordpress.org/plugins/wp-consent-api/).
 * WordPress Multisite compatible.
 * Custom button position with a shortcode.
 
@@ -39,7 +40,7 @@ Add this shortcode (header, sidebar or footer) where you wish the button to appe
 
 These parameters are available to make it match your site theme more closely:
 
-* **style** for the button style; can be fill or outline (default: not set). Note: styles may not work depending on your theme.
+* **style** for the button style; can be fill or outline (default: not set). Note: styles may not work as expected, depending on your theme.
 * **color** set the text color and outline color (default: white). Note: the + sign will always remain orange.
 * **bgcolor** sets the button background color (default: not set).
 

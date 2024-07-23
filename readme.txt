@@ -3,7 +3,7 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
 Tags: accessibility, orange confort, confort+, WP Consent API
 Tested up to: 6.5
-Stable tag: 0.6
+Stable tag: 0.6.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,9 +11,7 @@ Add the Orange Confort+ accessibility toolbar to your WordPress site.
 
 == Description ==
 
-[Orange Confort+](https://confort-plus.orange.com/index_en.html) aims to enhance user experience on your website. It works best when your website is fully accessible.
-
-Orange Confort+ does **not** fix website accessibility issues: blocking points stay blocking points, with or without Orange Confort+.
+[Orange Confort+](https://confort-plus.orange.com/index_en.html) aims to enhance user experience on your website. It works best when your website is fully accessible because it does **not** fix website accessibility issues: blocking points stay blocking points, with or without Orange Confort+.
 
 = Toolbar features =
 

@@ -2,7 +2,8 @@
 Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
 Tags: accessibility, orange confort, confort+, WP Consent API
-Tested up to: 6.5
+Tested up to: 6.6
+Requires at least: 4.6
 Stable tag: 0.6.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

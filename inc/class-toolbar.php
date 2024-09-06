@@ -24,8 +24,7 @@ class Toolbar {
 			\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'vendor/js/toolbar.min.js', __DIR__ ), array(), SCRIPT_VERSION, true );
 		}
 
-		$script  = '/* Orange Confort+ accessibility toolbar for WordPress ' . esc_js( VERSION ) . \PHP_EOL;
-		$script .= 'var hebergementFullPath = "' . \plugins_url( 'vendor/', __DIR__ ) . '", accessibilitytoolbar_custom = { idLinkModeContainer : "' . esc_js( apply_filters( 'ocplus_container_id', 'ocplus_button' ) ) . '", cssLinkModeClassName : "wp-block-button__link wp-element-button" };';
+		$script = 'var hebergementFullPath = "' . \plugins_url( 'vendor/', __DIR__ ) . '", accessibilitytoolbar_custom = { idLinkModeContainer : "' . \esc_js( \apply_filters( 'ocplus_container_id', 'ocplus_button' ) ) . '", cssLinkModeClassName : "wp-block-button__link wp-element-button" };';
 
 		\wp_add_inline_script( 'orange-confort-plus', $script, 'before' );
 	}

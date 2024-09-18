@@ -68,10 +68,8 @@ class Admin {
 		</label>
 	</p>
 	<p class="description">
-		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use either the shortcode %1$s or a button block with the ID (HTML anchor) %2$s on your site.', 'orange-confort-plus' ), '<code>[ocplus_button style="outline" color="black" bgcolor="" /]</code>', '<code>ocplus_button</code>' ); ?>
+		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use the shortcode %1$s.', 'orange-confort-plus' ), '<code>[ocplus_button style="outline" color="black" bgcolor="" /]</code>' ); ?>
 		<a href="https://wordpress.org/plugins/orange-confort-plus/#how%20to%20use%20the%20shortcode%3F" target="_blank"><?php \esc_html_e( 'Learn more about the shortcode.', 'orange-confort-plus' ); ?></a>
-		<br>
-		<?php \esc_html_e( 'Please note: there can be only one button on a web page and not all toolbar positions may work well in combination with a custom button position.', 'orange-confort-plus' ); ?>
 	</p>
 </fieldset>
 		<?php

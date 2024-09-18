@@ -29,7 +29,7 @@ The Orange Confort+ service was created by Orange. It provides significant assis
 = Plugin features =
 
 * Toolbar and button position can be set on Settings > Reading.
-* Custom button position with a [shortcode](https://wordpress.org/plugins/orange-confort-plus/#how%20to%20use%20the%20shortcode%3F).
+* Custom button position with a [shortcode](#how%20to%20use%20the%20shortcode%3F).
 * Compatible with many Cookie Consent plugins via [WP Consent API](https://wordpress.org/plugins/wp-consent-api/).
 * WordPress Multisite compatible.
 

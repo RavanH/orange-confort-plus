@@ -1,7 +1,7 @@
-=== Orange Confort+ ===
+=== Orange Confort+ accessibility toolbar for WordPress ===
 Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
-Tags: accessibility, orange confort, confort+, WP Consent API
+Tags: accessibility, orange confort, confort+
 Tested up to: 6.6
 Requires at least: 4.6
 Stable tag: 0.6.3
@@ -29,7 +29,7 @@ The Orange Confort+ service was created by Orange. It provides significant assis
 = Plugin features =
 
 * Toolbar and button position can be set on Settings > Reading.
-* Custom button position with a [shortcode](#how%20to%20use%20the%20shortcode%3F).
+* Custom button position with a [shortcode](https://wordpress.org/plugins/orange-confort-plus/#how%20to%20use%20the%20shortcode%3F).
 * Compatible with many Cookie Consent plugins via [WP Consent API](https://wordpress.org/plugins/wp-consent-api/).
 * WordPress Multisite compatible.
 
@@ -60,7 +60,7 @@ Add a the following shortcode in an Shortcode block where you wish the button to
 
 	[ocplus_button style="outline" color="black" bgcolor="" /]
 
-If you wish to add the button to a custom non-block theme template file, you can use this:
+If you wish to add the button to a custom, non-block, theme PHP template file, you can use this:
 
 	echo do_shortcode( '[ocplus_button style="outline" color="black" bgcolor="" /]' );
 

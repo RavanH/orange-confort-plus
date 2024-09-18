@@ -12,9 +12,11 @@ Add the Orange Confort+ accessibility toolbar to your WordPress site.
 
 == Description ==
 
-[Orange Confort+](https://confort-plus.orange.com/index_en.html) aims to enhance user experience on your website. It works best when your website is fully accessible because it does **not** fix website accessibility issues: blocking points stay blocking points, with or without Orange Confort+.
+This plugin adds the [Orange Confort+](https://confort-plus.orange.com/index_en.html) toolbar to your WordPress website.
 
-The Orange Confort+ toolbar was created by Orange. It provides significant assistance to users with motor, visual or cognitive disabilities (such as dyslexia), and improves the user experience for all.
+Orange Confort+ aims to enhance user experience on your website. It works best when your website is fully accessible because it does **not** fix website accessibility issues: blocking points stay blocking points, with or without Orange Confort+.
+
+The Orange Confort+ service was created by Orange. It provides significant assistance to users with motor, visual or cognitive disabilities (such as dyslexia), and improves the user experience for all.
 
 = Toolbar features =
 

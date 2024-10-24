@@ -12,7 +12,7 @@ Add the Orange Confort+ accessibility toolbar to your WordPress site.
 
 == Description ==
 
-This plugin adds the [Orange Confort+](https://confort-plus.orange.com/index_en.html) toolbar to your WordPress website.
+This plugin adds the [Orange Confort+](https://confort-plus.orange.com/index_en.html) toolbar, version 4.3.5, to your WordPress website.
 
 Orange Confort+ aims to enhance user experience on your website. It works best when your website is fully accessible because it does **not** fix website accessibility issues: blocking points stay blocking points, with or without Orange Confort+.
 
@@ -80,12 +80,14 @@ Please note: there can be only one button on a web page and not all toolbar posi
 3. Changing the layout, displaying a reading rule: mainly useful for visually impaired and cognitively impaired users who have difficulty identifying the information on the page, as well as motor disabled users who can’t use the mouse or those using keyboard navigation only.
 4. Choosing a custom palette for the text color and page background.
 5. Advanced behavior tools and options.
+6. Toolbar admin options on Settings > Reading.
 
 == Changelog ==
 
 = 0.6 =
 20240702
 * Classes + autoload for modular file inclusion.
+* Orange Confort+ script version 4.3.5
 
 = 0.5 =
 20240629

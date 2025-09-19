@@ -1,10 +1,10 @@
 === Orange Confort+ accessibility toolbar for WordPress ===
 Contributors: RavanH
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
+Donate link: https://www.paypal.com/donate/?hosted_button_id=5UVXZVN5HDKBS
 Tags: accessibility, orange confort, confort+, WP Consent API
-Tested up to: 6.7
+Tested up to: 6.8
 Requires at least: 4.6
-Stable tag: 0.6.3
+Stable tag: 0.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,7 +83,16 @@ Please note: there can be only _one_ button on a web page and not all toolbar po
 5. Advanced behavior tools and options.
 6. Toolbar admin options on Settings > Reading.
 
+== Upgrade Notice ==
+
+= 0.7 =
+Orange Confort+ script version 4.3.6
+
 == Changelog ==
+
+= 0.7 =
+20250920
+* Orange Confort+ script version 4.3.6
 
 = 0.6 =
 20240702

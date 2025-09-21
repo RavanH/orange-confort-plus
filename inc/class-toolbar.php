@@ -17,16 +17,18 @@ class Toolbar {
 	 * Enqueue main script.
 	 */
 	public static function script() {
+		$inline_script = 'var hebergementFullPath = "' . \plugins_url( 'vendor/', __DIR__ ) . '", accessibilitytoolbar_custom = { idLinkModeContainer : "' . \esc_js( \apply_filters( 'ocplus_container_id', 'ocplus_button' ) ) . '", cssLinkModeClassName : "wp-block-button__link wp-element-button" };';
+
 		// Consent API compatibility.
 		if ( \function_exists( 'wp_has_consent' ) ) {
 			\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'js/consent-api-wrapper.min.js', __DIR__ ), array(), VERSION, true );
+			$inline_script .= 'var ocPlusScriptVersion = "' . SCRIPT_VERSION . '";';
+
 		} else {
 			\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'vendor/js/toolbar.min.js', __DIR__ ), array(), SCRIPT_VERSION, true );
 		}
 
-		$script = 'var hebergementFullPath = "' . \plugins_url( 'vendor/', __DIR__ ) . '", accessibilitytoolbar_custom = { idLinkModeContainer : "' . \esc_js( \apply_filters( 'ocplus_container_id', 'ocplus_button' ) ) . '", cssLinkModeClassName : "wp-block-button__link wp-element-button" };';
-
-		\wp_add_inline_script( 'orange-confort-plus', $script, 'before' );
+		\wp_add_inline_script( 'orange-confort-plus', $inline_script, 'before' );
 	}
 
 	/**

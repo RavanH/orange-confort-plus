@@ -15,19 +15,18 @@
 
 namespace OCplus;
 
-\defined( 'WPINC' ) || die;
-
 const VERSION        = '0.7';
 const SCRIPT_VERSION = '4.3.6';
 
-\spl_autoload_register( __NAMESPACE__ . '\autoload' );
+\defined( 'WPINC' ) || die;
+\define( __NAMESPACE__ . '\BASENAME', \plugin_basename( __FILE__ ) );
 
 \add_action( 'init', __NAMESPACE__ . '\maybe_upgrade' );
 \add_action( 'admin_init', array( __NAMESPACE__ . '\Admin', 'settings' ) );
 \add_action( 'wp_enqueue_scripts', array( __NAMESPACE__ . '\Toolbar', 'script' ) );
 \add_action( 'wp_footer', array( __NAMESPACE__ . '\Toolbar', 'css' ) );
 \add_action( 'plugins_loaded', __NAMESPACE__ . '\register_cookies' );
-\add_filter( 'wp_consent_api_registered_' . \plugin_basename( __FILE__ ), '__return_true' );
+\add_filter( 'wp_consent_api_registered_' . BASENAME, '__return_true' );
 \add_shortcode( 'ocplus_button', array( __NAMESPACE__ . '\Shortcode', 'render' ) );
 
 /**
@@ -77,3 +76,5 @@ function autoload( $class_name ) {
 		include $file;
 	}
 }
+
+\spl_autoload_register( __NAMESPACE__ . '\autoload' );

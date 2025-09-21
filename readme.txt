@@ -91,8 +91,10 @@ Orange Confort+ script version 4.3.6
 == Changelog ==
 
 = 0.7 =
-20250920
+20250922
 * Orange Confort+ script version 4.3.6
+* Consent API wrapper script cache invalidation
+* Plugin action/meta links
 
 = 0.6 =
 20240702

@@ -50,7 +50,7 @@ class FilesService {
             throw new Error("FilesService is already instantiated.");
         }
         filesServiceIsInstantiated = true;
-        this.path = `${window.location.origin}/`;
+        this.path = `https://dev.status301.com/wp-content/plugins/orange-confort-plus/vendor/5.0.0-alpha.7/`;
     }
     getJSONFile(file) {
         return fetch(`${this.path}assets/json/${file}.json`).then((response => response.json())).catch((error => {
@@ -72,7 +72,7 @@ class I18nService {
             throw new Error("I18nService is already instantiated.");
         }
         i18nServiceIsInstantiated = true;
-        this.path = `${window.location.origin}/`;
+        this.path = `https://dev.status301.com/wp-content/plugins/orange-confort-plus/vendor/5.0.0-alpha.7/`;
         if ([ "en", "fr" ].some((language => navigator.language.startsWith(language)))) {
             this.locale = navigator.language.slice(0, 2);
         }
@@ -182,7 +182,7 @@ class PathService {
             throw new Error("PathService is already instantiated.");
         }
         pathServiceIsInstantiated = true;
-        this.path = `${window.location.origin}/`;
+        this.path = `https://dev.status301.com/wp-content/plugins/orange-confort-plus/vendor/5.0.0-alpha.7/`;
     }
 }
 

@@ -21,7 +21,7 @@ class Toolbar {
 		if ( \function_exists( 'wp_has_consent' ) ) {
 			\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'js/consent-api-wrapper.min.js', __DIR__ ), array(), VERSION, true );
 		} else {
-			\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'vendor/js/toolbar.min.js', __DIR__ ), array(), SCRIPT_VERSION, true );
+			\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'vendor/' . SCRIPT_VERSION . '/js/toolbar.min.js', __DIR__ ), array(), null, true );
 		}
 
 		$script = 'var hebergementFullPath = "' . \plugins_url( 'vendor/', __DIR__ ) . '", accessibilitytoolbar_custom = { idLinkModeContainer : "' . \esc_js( \apply_filters( 'ocplus_container_id', 'ocplus_button' ) ) . '", cssLinkModeClassName : "wp-block-button__link wp-element-button" };';

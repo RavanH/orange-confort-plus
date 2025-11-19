@@ -18,7 +18,7 @@ namespace OCplus;
 \defined( 'WPINC' ) || die;
 
 const VERSION        = '0.6.3';
-const SCRIPT_VERSION = '5.0.0-beta.11';
+const SCRIPT_VERSION = '5.1.0';
 
 \spl_autoload_register( __NAMESPACE__ . '\autoload' );
 

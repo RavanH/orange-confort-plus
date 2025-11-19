@@ -18,7 +18,8 @@ namespace OCplus;
 \defined( 'WPINC' ) || die;
 
 const VERSION        = '0.6.3';
-const SCRIPT_VERSION = '5.1.0';
+const SCRIPT_VERSION = '5.0.1';
+const PLUGIN_FILE    = __FILE__;
 
 \spl_autoload_register( __NAMESPACE__ . '\autoload' );
 

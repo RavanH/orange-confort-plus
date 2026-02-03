@@ -28,7 +28,7 @@ class Shortcode {
 	public static function render( $atts = array() ) {
 		// Skip if already rendered.
 		if ( self::$rendered ) {
-			return is_user_loggeg_in() && current_user_can( 'edit_pages' ) ? esc_html__( 'Orange Confort+ button already rendered!', 'orange-confort-plus' ) : '';
+			return \is_user_logged_in() && \current_user_can( 'edit_pages' ) ? \esc_html__( 'Orange Confort+ button already rendered!', 'orange-confort-plus' ) : '';
 		}
 
 		$atts = \shortcode_atts(

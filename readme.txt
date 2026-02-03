@@ -2,9 +2,9 @@
 Contributors: RavanH
 Donate link: https://www.paypal.com/donate/?hosted_button_id=5UVXZVN5HDKBS
 Tags: accessibility, orange confort, confort+, WP Consent API
-Tested up to: 6.8
+Tested up to: 6.9
 Requires at least: 4.6
-Stable tag: 0.7
+Stable tag: 0.7.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,10 +85,15 @@ Please note: there can be only _one_ button on a web page and not all toolbar po
 
 == Upgrade Notice ==
 
-= 0.7 =
-Orange Confort+ script version 4.3.6
+= 0.7.1 =
+Bugfix and security patch
 
 == Changelog ==
+
+= 0.7.1 =
+20260203
+* FIX Undefined function
+* PATCH Unsanitized shortcode attribute; CVE-2026-1808 (Muhammad Yudha - DJ, Wordfence)
 
 = 0.7 =
 20250922

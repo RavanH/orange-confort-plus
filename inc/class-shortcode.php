@@ -41,13 +41,13 @@ class Shortcode {
 		);
 
 		if ( ! empty( $atts['color'] ) ) {
-			$styles[] = 'color:' . esc_attr( $atts['color'] );
+			$styles[] = 'color:' . \esc_attr( $atts['color'] );
 		}
 		if ( ! empty( $atts['bgcolor'] ) ) {
-			$styles[] = 'background-color:' . esc_attr( $atts['bgcolor'] );
+			$styles[] = 'background-color:' . \esc_attr( $atts['bgcolor'] );
 		}
 
-		$outline = ! empty( $atts['style'] ) ? ' is-style-' . $atts['style'] : '';
+		$outline = ! empty( $atts['style'] ) ? ' is-style-' . \esc_attr( $atts['style'] ) : '';
 		$style   = isset( $styles ) ? '<style>#uci_link{' . implode( ';', $styles ) . '}</style>' : '';
 
 		// Set rendered flag.

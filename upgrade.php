@@ -30,6 +30,9 @@ if ( '0' !== $db_version ) {
 			\update_option( 'oc_plus_position', $oc_settings );
 		}
 	}
+
+	\add_option( 'oc_plus_script_version', '4.3.6' );
+	\add_option( 'oc_plus_position', array() );
 }
 
 // Update DB version.

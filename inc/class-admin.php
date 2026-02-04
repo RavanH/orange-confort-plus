@@ -67,6 +67,7 @@ class Admin {
 			</select>
 		</label>
 	</p>
+	<?php if ( ! $script_v || \version_compare( $script_v, '5', '<' ) ) : ?>
 	<p>
 		<label>
 			<?php \esc_html_e( 'Accessibility toolbar position:', 'orange-confort-plus' ); ?>
@@ -79,7 +80,6 @@ class Admin {
 			</select>
 		</label>
 	</p>
-	<?php if ( ! $script_v || \version_compare( $script_v, '5', '<' ) ) : ?>
 	<p>
 		<label>
 			<?php \esc_html_e( 'Accessibility button position:', 'orange-confort-plus' ); ?>
@@ -90,8 +90,12 @@ class Admin {
 		</label>
 	</p>
 	<p class="description">
-		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use the shortcode %1$s.', 'orange-confort-plus' ), '<code>[ocplus_button style="outline" color="black" bgcolor="" /]</code>' ); ?>
+		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use the shortcode %s.', 'orange-confort-plus' ), '<code>[ocplus_button style="outline" color="black" bgcolor="" /]</code>' ); ?>
 		<a href="https://wordpress.org/plugins/orange-confort-plus/#how%20to%20use%20the%20shortcode%3F" target="_blank"><?php \esc_html_e( 'Learn more about the shortcode.', 'orange-confort-plus' ); ?></a>
+	</p>
+	<?php else : ?>
+	<p class="description">
+		<?php \esc_html_e( 'The toolbar version 5+ is positioned in the top right or the browser window. For custom position options, select a script version below 5.0.', 'orange-confort-plus' ); ?>
 	</p>
 	<?php endif; ?>
 </fieldset>

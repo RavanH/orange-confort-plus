@@ -17,14 +17,23 @@ class Admin {
 	 * Settings.
 	 */
 	public static function settings() {
-		// Register setting.
+		// Register settings.
+		\register_setting(
+			'reading',
+			'oc_plus_script_version',
+			array(
+				'type'    => 'string',
+				'default' => '4.3.6',
+			)
+		);
+
 		\register_setting(
 			'reading',
 			'oc_plus_position',
 			array(
 				'type'    => 'array',
 				'default' => array(),
-			),
+			)
 		);
 
 		// Add field.
@@ -40,9 +49,10 @@ class Admin {
 	 * Settings field.
 	 */
 	public static function settings_field() {
-		$settings = (array) \get_option( 'oc_plus_position' );
-		$button   = isset( $settings['button'] ) ? $settings['button'] : '';
-		$toolbar  = isset( $settings['toolbar'] ) ? $settings['toolbar'] : '';
+		$script_v = (string) \get_option( 'oc_plus_script_version' );
+		$position = (array) \get_option( 'oc_plus_position' );
+		$button   = isset( $position['button'] ) ? $position['button'] : '';
+		$toolbar  = isset( $position['toolbar'] ) ? $position['toolbar'] : '';
 		?>
 <fieldset id="oc_plus">
 	<legend class="screen-reader-text">
@@ -50,14 +60,26 @@ class Admin {
 	</legend>
 	<p>
 		<label>
+			<?php \esc_html_e( 'Accessibility toolbar version:', 'orange-confort-plus' ); ?>
+			<select name="oc_plus_script_version" id="oc_plus_script_version">
+				<option value="4.3.6"<?php \selected( '4.3.6', $script_v ); ?>>4.3.6</option>
+				<option value="5.0.1"<?php \selected( '5.0.1', $script_v ); ?>>5.0.1</option>
+			</select>
+		</label>
+	</p>
+	<p>
+		<label>
 			<?php \esc_html_e( 'Accessibility toolbar position:', 'orange-confort-plus' ); ?>
 			<select name="oc_plus_position[toolbar]" id="oc_plus_toolbar_position">
-				<option value=""><?php \esc_html_e( 'Page top', 'orange-confort-plus' ); ?></option>
+				<?php if ( ! $script_v || \version_compare( $script_v, '5', '<' ) ) : ?>
+					<option value=""><?php \esc_html_e( 'Page top', 'orange-confort-plus' ); ?></option>
+				<?php endif; ?>
 				<option value="top"<?php \selected( 'top', $toolbar ); ?>><?php \esc_html_e( 'Window top', 'orange-confort-plus' ); ?></option>
 				<option value="bottom"<?php \selected( 'bottom', $toolbar ); ?>><?php \esc_html_e( 'Window bottom', 'orange-confort-plus' ); ?></option>
 			</select>
 		</label>
 	</p>
+	<?php if ( ! $script_v || \version_compare( $script_v, '5', '<' ) ) : ?>
 	<p>
 		<label>
 			<?php \esc_html_e( 'Accessibility button position:', 'orange-confort-plus' ); ?>
@@ -71,6 +93,7 @@ class Admin {
 		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use the shortcode %1$s.', 'orange-confort-plus' ), '<code>[ocplus_button style="outline" color="black" bgcolor="" /]</code>' ); ?>
 		<a href="https://wordpress.org/plugins/orange-confort-plus/#how%20to%20use%20the%20shortcode%3F" target="_blank"><?php \esc_html_e( 'Learn more about the shortcode.', 'orange-confort-plus' ); ?></a>
 	</p>
+	<?php endif; ?>
 </fieldset>
 		<?php
 	}

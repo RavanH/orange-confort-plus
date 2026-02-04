@@ -34,12 +34,6 @@ class Admin {
 			array( __CLASS__, 'settings_field' ),
 			'reading'
 		);
-
-		/**
-		 * Plugin action links.
-		 */
-		\add_filter( 'plugin_action_links_' . BASENAME, array( __CLASS__, 'add_action_link' ) );
-		\add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2 );
 	}
 
 	/**

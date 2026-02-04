@@ -3,7 +3,7 @@
  * Plugin Name: Orange Confort+ accessibility toolbar for WordPress
  * Plugin URI:  https://status301.net/wordpress-plugins/orange-confort-plus/
  * Description: Add the Orange Confort+ accessibility toolbar to your WordPress site.
- * Version:     0.7.1
+ * Version:     0.7.2
  * Text Domain: orange-confort-plus
  * Author:      RavanH
  * Author URI:  https://status301.net/
@@ -15,19 +15,14 @@
 
 namespace OCplus;
 
-const VERSION        = '0.7.1';
+const VERSION = '0.7.2';
 const SCRIPT_VERSION = '4.3.6';
 
 \defined( 'WPINC' ) || die;
-\define( __NAMESPACE__ . '\BASENAME', \plugin_basename( __FILE__ ) );
 
-\add_action( 'init', __NAMESPACE__ . '\maybe_upgrade' );
-\add_action( 'admin_init', array( __NAMESPACE__ . '\Admin', 'settings' ) );
-\add_action( 'wp_enqueue_scripts', array( __NAMESPACE__ . '\Toolbar', 'script' ) );
-\add_action( 'wp_footer', array( __NAMESPACE__ . '\Toolbar', 'css' ) );
 \add_action( 'plugins_loaded', __NAMESPACE__ . '\register_cookies' );
-\add_filter( 'wp_consent_api_registered_' . BASENAME, '__return_true' );
-\add_shortcode( 'ocplus_button', array( __NAMESPACE__ . '\Shortcode', 'render' ) );
+\add_action( 'init', __NAMESPACE__ . '\init' );
+\add_action( 'admin_init', array( __NAMESPACE__ . '\Admin', 'settings' ) );
 
 /**
  * Register cookies.
@@ -42,11 +37,24 @@ function register_cookies() {
 /**
  * Maybe upgrade or install.
  */
-function maybe_upgrade() {
+function init() {
+	/* Maybe upgrade */
 	$db_version = \get_option( 'oc_plus_version', '0' );
 	if ( 0 !== \version_compare( VERSION, $db_version ) ) {
 		include_once __DIR__ . '/upgrade.php';
 	}
+
+	$basename = \plugin_basename( __FILE__ );
+
+	/* Hooks */
+	\add_action( 'wp_enqueue_scripts', array( __NAMESPACE__ . '\Toolbar', 'script' ) );
+	\add_action( 'wp_footer', array( __NAMESPACE__ . '\Toolbar', 'css' ) );
+	\add_filter( 'wp_consent_api_registered_' . $basename, '__return_true' );
+	\add_filter( 'plugin_action_links_' . $basename, array( __CLASS__, 'add_action_link' ) );
+	\add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2 );
+
+	/* Shortcode */
+	\add_shortcode( 'ocplus_button', array( __NAMESPACE__ . '\Shortcode', 'render' ) );
 }
 
 /**

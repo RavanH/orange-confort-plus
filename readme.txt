@@ -1,10 +1,10 @@
 === Orange Confort+ accessibility toolbar for WordPress ===
 Contributors: RavanH
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=Orange%20Confort%20Plus
+Donate link: https://www.paypal.com/donate/?hosted_button_id=5UVXZVN5HDKBS
 Tags: accessibility, orange confort, confort+, WP Consent API
-Tested up to: 6.6
+Tested up to: 6.9
 Requires at least: 4.6
-Stable tag: 0.6.3
+Stable tag: 0.7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,11 +12,13 @@ Add the Orange Confort+ accessibility toolbar to your WordPress site.
 
 == Description ==
 
-This plugin adds the [Orange Confort+](https://confort-plus.orange.com/index_en.html) toolbar, version 4.3.5, to your WordPress website.
+This plugin adds the [Orange Confort+](https://confort-plus.orange.com/index_en.html) accessibility toolbar, version 4.3.5, to your WordPress website.
 
 Orange Confort+ aims to enhance user experience on your website. It works best when your website is fully accessible because it does **not** fix website accessibility issues: blocking points stay blocking points, with or without Orange Confort+.
 
 The Orange Confort+ service was created by Orange. It provides significant assistance to users with motor, visual or cognitive disabilities (such as dyslexia), and improves the user experience for all.
+
+https://www.youtube.com/watch?v=vQiZMk694TQ
 
 = Toolbar features =
 
@@ -35,7 +37,7 @@ The Orange Confort+ service was created by Orange. It provides significant assis
 
 = Privacy / GDPR =
 
-This plugin does not collect any user or visitor data. The Orange Confort+ accessibility toolbar uses two functional browser cookies, used for storing user selected accessibility options.
+Neither this plugin nor the Orange Confort+ accessibility toolbar collect any user or visitor data. The Orange Confort+ accessibility toolbar uses two functional browser cookies, used for storing user selected accessibility options.
 
 * UCI42 - Stores user toolbar settings; set at page load; domain specific; expires after 1 year.
 * uci-bl - Stores toolbar on/off toggle; set when toolbar toggle is used; domain specific; session only.
@@ -56,11 +58,11 @@ A shortcode **ocplus_button** is available to allow giving the Orange Confort+ b
 
 = How to use the shortcode? =
 
-Add a the following shortcode in an Shortcode block where you wish the button to appear in any template part or widget zone.
+Add the following shortcode in an Shortcode block where you wish the button to appear in any template part or widget zone.
 
 	[ocplus_button style="outline" color="black" bgcolor="" /]
 
-If you wish to add the button to a custom, non-block, theme PHP template file, you can use this:
+If you wish to add the button to a custom, classic (non-FSE) theme PHP template file, you can use this:
 
 	echo do_shortcode( '[ocplus_button style="outline" color="black" bgcolor="" /]' );
 
@@ -70,8 +72,7 @@ These parameters are available to make it match your site theme more closely:
 * **color** set the text color and outline color (default: white). Note: the + sign will always remain orange.
 * **bgcolor** sets the button background color (default: not set).
 
-Please note: there can be only one button on a web page and not all toolbar positions may work well in combination with a custom button position
-
+Please note: there can be only _one_ button on a web page and not all toolbar positions may work well in combination with a custom button position.
 
 == Screenshots ==
 
@@ -82,7 +83,24 @@ Please note: there can be only one button on a web page and not all toolbar posi
 5. Advanced behavior tools and options.
 6. Toolbar admin options on Settings > Reading.
 
+== Upgrade Notice ==
+
+= 0.7.2 =
+Bugfix and security patch
+
 == Changelog ==
+
+= 0.7.2 =
+20260204
+* FIX Undefined function
+* FIX plugin basename
+* PATCH Unsanitized shortcode attribute; CVE-2026-1808 (Muhammad Yudha - DJ, Wordfence)
+
+= 0.7 =
+20250922
+* Orange Confort+ script version 4.3.6
+* Consent API wrapper script cache invalidation
+* Plugin action/meta links
 
 = 0.6 =
 20240702

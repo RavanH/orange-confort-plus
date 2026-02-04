@@ -46,6 +46,39 @@ class Admin {
 	}
 
 	/**
+	 * Plugin action link.
+	 *
+	 * @since 0.7
+	 *
+	 * @param array $links Action links array.
+	 *
+	 * @return array $links
+	 */
+	public static function add_action_link( $links ) {
+		$settings_link = '<a href="' . \admin_url( 'options-reading.php' ) . '#oc_plus">' . \esc_html__( 'Settings', 'xml-sitemaps-manager' ) . '</a>';
+		\array_unshift( $links, $settings_link );
+		return $links;
+	}
+
+	/**
+	 * Plugin meta links.
+	 *
+	 * @since 0.1
+	 *
+	 * @param array  $links Meta links array.
+	 * @param string $file  Plugin file name.
+	 *
+	 * @return array $links
+	 */
+	public static function plugin_meta_links( $links, $file ) {
+		if (  BASENAME === $file ) {
+			$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/orange-confort-plus/">' . \esc_html__( 'Support', 'xml-sitemaps-manager' ) . '</a>';
+			$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/orange-confort-plus/reviews/?filter=5#new-post">' . \esc_html__( 'Rate ★★★★★', 'xml-sitemaps-manager' ) . '</a>';
+		}
+		return $links;
+	}
+
+	/**
 	 * Settings field.
 	 */
 	public static function settings_field() {
@@ -99,6 +132,11 @@ class Admin {
 	</p>
 	<?php endif; ?>
 </fieldset>
+<script>
+if ( "#oc_plus" === window.location.hash ) {
+	document.getElementById( "oc_plus" ).className += " highlight";
+}
+</script>
 		<?php
 	}
 }

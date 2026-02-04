@@ -1,5 +1,5 @@
 // Load on document ready, needed for cache compatibility.
-document.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener("DOMContentLoaded", function (e) {
     if (!window.waitfor_consent_hook) {
         if (wp_has_consent('functional')) {
             appendOCplusToolbar();
@@ -21,8 +21,8 @@ document.addEventListener("wp_listen_for_consent_change", function (e) {
 
 // Append our toolbar script.
 function appendOCplusToolbar() {
-    var script  = document.createElement("script");
+    var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = hebergementFullPath + "js/toolbar.min.js";
+    script.src = hebergementFullPath + "js/toolbar.min.js?ver=" + ocPlusScriptVersion;
     document.body.appendChild(script);
 }

@@ -28,7 +28,7 @@ class Shortcode {
 	public static function render( $atts = array() ) {
 		// Skip if already rendered.
 		if ( self::$rendered ) {
-			return is_user_loggeg_in() && current_user_can( 'edit_pages' ) ? esc_html__( 'Orange Confort+ button already rendered!', 'orange-confort-plus' ) : '';
+			return \is_user_logged_in() && \current_user_can( 'edit_pages' ) ? \esc_html__( 'Orange Confort+ button already rendered!', 'orange-confort-plus' ) : '';
 		}
 
 		$atts = \shortcode_atts(
@@ -41,13 +41,13 @@ class Shortcode {
 		);
 
 		if ( ! empty( $atts['color'] ) ) {
-			$styles[] = 'color:' . esc_attr( $atts['color'] );
+			$styles[] = 'color:' . \esc_attr( $atts['color'] );
 		}
 		if ( ! empty( $atts['bgcolor'] ) ) {
-			$styles[] = 'background-color:' . esc_attr( $atts['bgcolor'] );
+			$styles[] = 'background-color:' . \esc_attr( $atts['bgcolor'] );
 		}
 
-		$outline = ! empty( $atts['style'] ) ? ' is-style-' . $atts['style'] : '';
+		$outline = ! empty( $atts['style'] ) ? ' is-style-' . \esc_attr( $atts['style'] ) : '';
 		$style   = isset( $styles ) ? '<style>#uci_link{' . implode( ';', $styles ) . '}</style>' : '';
 
 		// Set rendered flag.

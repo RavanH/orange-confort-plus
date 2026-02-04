@@ -20,19 +20,21 @@ class Toolbar {
 		$version = (string) \get_option( 'oc_plus_script_version' );
 
 		if ( ! $version || ! in_array( $version, array( '4.3.6', '5.0.1' ) ) ) {
-			$version = '5.0.1';
+			$version = '4.3.6';
 		}
 
 		// Consent API compatibility.
-		if ( \version_compare( $version, '5', '<' ) && \function_exists( 'wp_has_consent' ) ) {
-			\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'js/consent-api-wrapper.min.js', PLUGIN_FILE ), array(), VERSION, true );
-
-			// inline script.
+		if ( \version_compare( $version, '5', '<' ) ) {
 			$inline = 'var hebergementFullPath = "' . \plugins_url( 'vendor/' . $version, PLUGIN_FILE ) . '", accessibilitytoolbar_custom = { idLinkModeContainer : "' . \esc_js( \apply_filters( 'ocplus_container_id', 'ocplus_button' ) ) . '", cssLinkModeClassName : "wp-block-button__link wp-element-button" };';
-			$inline .= 'var ocPlusScriptVersion = "' . $version . '";';
+
+			if ( \function_exists( 'wp_has_consent' ) ) {
+				\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'js/consent-api-wrapper.min.js', PLUGIN_FILE ), array(), VERSION, true );
+				$inline .= 'var ocPlusScriptVersion = "' . $version . '";';
+			} else {
+				\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'vendor/' . $version . '/js/toolbar.min.js', PLUGIN_FILE ), array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			}
 		} else {
 			\wp_enqueue_script( 'orange-confort-plus', \plugins_url( 'vendor/' . $version . '/js/toolbar.min.js', PLUGIN_FILE ), array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-
 			$inline = 'const customAppPath = "' . \trailingslashit( \plugins_url( 'vendor/' . $version, PLUGIN_FILE ) ) . '";';
 		}
 

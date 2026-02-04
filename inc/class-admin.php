@@ -16,7 +16,7 @@ class Admin {
 	/**
 	 * Settings.
 	 */
-	public static function settings() {
+	public static function init() {
 		// Register settings.
 		\register_setting(
 			'reading',
@@ -43,6 +43,10 @@ class Admin {
 			array( __CLASS__, 'settings_field' ),
 			'reading'
 		);
+
+		// Plugin action links.
+		\add_filter( 'plugin_action_links_' . \plugin_basename( PLUGIN_FILE ), array( __CLASS__, 'add_action_link' ) );
+		\add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2 );
 	}
 
 	/**
@@ -71,7 +75,7 @@ class Admin {
 	 * @return array $links
 	 */
 	public static function plugin_meta_links( $links, $file ) {
-		if (  BASENAME === $file ) {
+		if ( \plugin_basename( PLUGIN_FILE ) === $file ) {
 			$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/orange-confort-plus/">' . \esc_html__( 'Support', 'xml-sitemaps-manager' ) . '</a>';
 			$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/orange-confort-plus/reviews/?filter=5#new-post">' . \esc_html__( 'Rate ★★★★★', 'xml-sitemaps-manager' ) . '</a>';
 		}
@@ -123,7 +127,7 @@ class Admin {
 		</label>
 	</p>
 	<p class="description">
-		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use the shortcode %s.', 'orange-confort-plus' ), '<code>[ocplus_button style="outline" color="black" bgcolor="" /]</code>' ); ?>
+		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use the shortcode %s.', 'orange-confort-plus' ), '<code>[ocplus_button color="white" bgcolor="black" /]</code>' ); ?>
 		<a href="https://wordpress.org/plugins/orange-confort-plus/#how%20to%20use%20the%20shortcode%3F" target="_blank"><?php \esc_html_e( 'Learn more about the shortcode.', 'orange-confort-plus' ); ?></a>
 	</p>
 	<?php else : ?>

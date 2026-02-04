@@ -15,24 +15,16 @@
 
 namespace OCplus;
 
-const VERSION = '0.7.2';
+const VERSION        = '0.7.2';
 const SCRIPT_VERSION = '4.3.6';
+const PLUGIN_FILE    = __FILE__;
 
 \defined( 'WPINC' ) || die;
 
-\add_action( 'plugins_loaded', __NAMESPACE__ . '\register_cookies' );
-\add_action( 'init', __NAMESPACE__ . '\init' );
-\add_action( 'admin_init', array( __NAMESPACE__ . '\Admin', 'settings' ) );
+\spl_autoload_register( __NAMESPACE__ . '\autoload' );
 
-/**
- * Register cookies.
- */
-function register_cookies() {
-	if ( \function_exists( 'wp_add_cookie_info' ) ) {
-		\wp_add_cookie_info( 'UCI42', \__( 'Orange Confort+', 'orange-confort-plus' ), 'functional', \__( '1 Year', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
-		\wp_add_cookie_info( 'uci-bl', \__( 'Orange Confort+', 'orange-confort-plus' ), 'functional', \__( 'Session', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
-	}
-}
+\add_action( 'init', __NAMESPACE__ . '\init', 9 );
+\add_action( 'admin_init', array( __NAMESPACE__ . '\Admin', 'init' ) );
 
 /**
  * Maybe upgrade or install.
@@ -44,14 +36,16 @@ function init() {
 		include_once __DIR__ . '/upgrade.php';
 	}
 
-	$basename = \plugin_basename( __FILE__ );
+	$script_version = (string) \get_option( 'oc_plus_script_version', '4.3.6' );
+	if ( ! $script_version || ( \version_compare( $script_version, '5', '<' ) && \function_exists( 'wp_add_cookie_info' ) ) ) {
+		\wp_add_cookie_info( 'UCI42', \__( 'Orange Confort+', 'orange-confort-plus' ), 'functional', \__( '1 Year', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
+		\wp_add_cookie_info( 'uci-bl', \__( 'Orange Confort+', 'orange-confort-plus' ), 'functional', \__( 'Session', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
+	}
 
 	/* Hooks */
 	\add_action( 'wp_enqueue_scripts', array( __NAMESPACE__ . '\Toolbar', 'script' ) );
 	\add_action( 'wp_footer', array( __NAMESPACE__ . '\Toolbar', 'css' ) );
-	\add_filter( 'wp_consent_api_registered_' . $basename, '__return_true' );
-	\add_filter( 'plugin_action_links_' . $basename, array( __CLASS__, 'add_action_link' ) );
-	\add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2 );
+	\add_filter( 'wp_consent_api_registered_' . \plugin_basename( PLUGIN_FILE ), '__return_true' );
 
 	/* Shortcode */
 	\add_shortcode( 'ocplus_button', array( __NAMESPACE__ . '\Shortcode', 'render' ) );
@@ -84,5 +78,3 @@ function autoload( $class_name ) {
 		include $file;
 	}
 }
-
-\spl_autoload_register( __NAMESPACE__ . '\autoload' );

@@ -28,7 +28,12 @@ class Shortcode {
 	public static function render( $atts = array() ) {
 		// Skip if already rendered.
 		if ( self::$rendered ) {
-			return \is_user_logged_in() && \current_user_can( 'edit_pages' ) ? \esc_html__( 'Orange Confort+ button already rendered!', 'orange-confort-plus' ) : '';
+			return \is_user_logged_in() && \current_user_can( 'edit_pages' ) ? '<p>' . \esc_html__( 'Orange Confort+ button already rendered! Please use this shortcode only once.', 'orange-confort-plus' ) . '</p>' : '';
+		}
+
+		$script_version = (string) \get_option( 'oc_plus_script_version', '4.3.6' );
+		if ( $script_version && \version_compare( $script_version, '5', '>=' ) ) {
+			return \is_user_logged_in() && \current_user_can( 'edit_pages' ) ? '<p>' . \esc_html__( 'Shortcode not supported by Orange Confort+ version 5 and up!', 'orange-confort-plus' ) . '</p>' : '';
 		}
 
 		$atts = \shortcode_atts(

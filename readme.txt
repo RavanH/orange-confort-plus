@@ -60,15 +60,14 @@ A shortcode **ocplus_button** is available to allow giving the Orange Confort+ b
 
 Add the following shortcode in an Shortcode block where you wish the button to appear in any template part or widget zone.
 
-	[ocplus_button style="outline" color="black" bgcolor="" /]
+	[ocplus_button color="white" bgcolor="black" /]
 
 If you wish to add the button to a custom, classic (non-FSE) theme PHP template file, you can use this:
 
-	echo do_shortcode( '[ocplus_button style="outline" color="black" bgcolor="" /]' );
+	echo do_shortcode( '[ocplus_button style="outline" color="white" bgcolor="black" /]' );
 
 These parameters are available to make it match your site theme more closely:
 
-* **style** for the button style; can be fill or outline (default: not set). Note: styles may not work as expected, depending on your theme.
 * **color** set the text color and outline color (default: white). Note: the + sign will always remain orange.
 * **bgcolor** sets the button background color (default: not set).
 

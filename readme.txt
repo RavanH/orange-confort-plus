@@ -1,7 +1,7 @@
 === Orange Comfort+ accessibility toolbar for WordPress ===
 Contributors: RavanH
 Donate link: https://www.paypal.com/donate/?hosted_button_id=5UVXZVN5HDKBS
-Tags: accessibility, Orange Confort, Confort+, WP Consent API
+Tags: accessibility, Orange Comfort, Confort+, WP Consent API
 Tested up to: 6.9
 Requires at least: 4.6
 Stable tag: 0.8.0

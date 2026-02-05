@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Orange Confort+ accessibility toolbar for WordPress
+ * Plugin Name: Orange Comfort+ accessibility toolbar for WordPress
  * Plugin URI:  https://status301.net/wordpress-plugins/orange-confort-plus/
- * Description: Add the Orange Confort+ accessibility toolbar to your WordPress site.
+ * Description: Add the Orange Comfort+ accessibility toolbar to your WordPress site.
  * Version:     0.8.0
  * Text Domain: orange-confort-plus
  * Author:      RavanH
@@ -10,13 +10,12 @@
  * License:     GPL v2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
- * @package Orange Confort+
+ * @package Orange Comfort+
  */
 
 namespace OCplus;
 
-const VERSION        = '0.8.0';
-const SCRIPT_VERSION = '4.3.6';
+const PLUGIN_VERSION = '0.8.0';
 const PLUGIN_FILE    = __FILE__;
 
 \defined( 'WPINC' ) || die;
@@ -32,14 +31,14 @@ const PLUGIN_FILE    = __FILE__;
 function init() {
 	/* Maybe upgrade */
 	$db_version = \get_option( 'oc_plus_version', '0' );
-	if ( 0 !== \version_compare( VERSION, $db_version ) ) {
+	if ( 0 !== \version_compare( PLUGIN_VERSION, $db_version ) ) {
 		include_once __DIR__ . '/upgrade.php';
 	}
 
 	$script_version = (string) \get_option( 'oc_plus_script_version', '4.3.6' );
-	if ( ! $script_version || ( \version_compare( $script_version, '5', '<' ) && \function_exists( 'wp_add_cookie_info' ) ) ) {
-		\wp_add_cookie_info( 'UCI42', \__( 'Orange Confort+', 'orange-confort-plus' ), 'functional', \__( '1 Year', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
-		\wp_add_cookie_info( 'uci-bl', \__( 'Orange Confort+', 'orange-confort-plus' ), 'functional', \__( 'Session', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
+	if ( \function_exists( 'wp_add_cookie_info' ) && ( ! $script_version || \version_compare( $script_version, '5', '<' ) ) ) {
+		\wp_add_cookie_info( 'UCI42', \__( 'Orange Comfort+', 'orange-confort-plus' ), 'functional', \__( '1 Year', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
+		\wp_add_cookie_info( 'uci-bl', \__( 'Orange Comfort+', 'orange-confort-plus' ), 'functional', \__( 'Session', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
 	}
 
 	/* Hooks */

@@ -1,8 +1,8 @@
 <?php
 /**
- * Orange Confort+ admin class.
+ * Orange Comfort+ admin class.
  *
- * @package Orange Confort+
+ * @package Orange Comfort+
  *
  * @since 0.6
  */
@@ -39,7 +39,7 @@ class Admin {
 		// Add field.
 		\add_settings_field(
 			'oc_plus',
-			\__( 'Orange Confort+', 'orange-confort-plus' ),
+			\__( 'Orange Comfort+', 'orange-confort-plus' ),
 			array( __CLASS__, 'settings_field' ),
 			'reading'
 		);
@@ -93,7 +93,7 @@ class Admin {
 		?>
 <fieldset id="oc_plus">
 	<legend class="screen-reader-text">
-		<?php \esc_html_e( 'Orange Confort+', 'orange-confort-plus' ); ?>
+		<?php \esc_html_e( 'Orange Comfort+', 'orange-confort-plus' ); ?>
 	</legend>
 	<p>
 		<label>

@@ -1,8 +1,8 @@
 <?php
 /**
- * Orange Confort+ uninstallation.
+ * Orange Comfort+ uninstallation.
  *
- * @package Orange Confort+
+ * @package Orange Comfort+
  *
  * @since 0.4
  */

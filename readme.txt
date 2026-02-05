@@ -1,4 +1,4 @@
-=== Orange Confort+ accessibility toolbar for WordPress ===
+=== Orange Comfort+ accessibility toolbar for WordPress ===
 Contributors: RavanH
 Donate link: https://www.paypal.com/donate/?hosted_button_id=5UVXZVN5HDKBS
 Tags: accessibility, Orange Confort, Confort+, WP Consent API
@@ -8,15 +8,17 @@ Stable tag: 0.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add the Orange Confort+ accessibility toolbar to your WordPress site.
+Add the Orange Comfort+ accessibility toolbar to your WordPress site.
 
 == Description ==
 
-This plugin adds the [Orange Confort+](https://confort-plus.orange.com/index_en.html) accessibility toolbar to your WordPress website. You can choose between version 4 and 5 of the toolbar.
+This plugin adds the [Orange Comfort+](https://confort-plus.orange.com/index_en.html) accessibility toolbar to your WordPress website. You can choose between version 4 and 5 of the toolbar.
 
 Orange Comfort+ is a browser extension that facilitates reading and navigation on web pages. It adjusts the display of text, buttons, links, as well as vocalization and navigation by offering specific buttons, a large mouse pointer, a highly visible focus, and quick access to numerous settings.
 
-Comfort+ settings will only work correctly on websites that comply with accessibility standards. If a site is inaccessible, its functionality may be significantly compromised. A Pause button allows you to temporarily disable Comfort+.
+Comfort+ settings will only work correctly on websites that comply with accessibility standards. If a site is inaccessible, its functionality may be significantly compromised.
+
+For web developers, Comfort+ is an excellent way to showcase the accessibility improvements made to their websites.
 
 The Orange Comfort+ service was created by Orange. It embodies a design approach centered on the diversity of users and follows the principles of universal design: an interface for everyone, with personalized settings for each individual.
 
@@ -29,8 +31,6 @@ The Comfort+ palette is organized into groups of settings, some designed for use
 Other settings are aimed at users needing reading accommodations, such as highly legible and vocalized text ( Reading+ mode) or more advanced tools like rulers, margins, and colorization ( Reading++ mode).
 Finally, navigation settings are available for users who have difficulty with the mouse pointer and prefer larger buttons or even no-click navigation with automatic hovering clicks ( Pointing+ mode). Additional settings are available for users who navigate web pages exclusively using buttons or keyboard commands ( Motor+ mode).
 
-For web developers, Comfort+ is an excellent way to showcase the accessibility improvements made to their websites.
-
 = Plugin options =
 
 * Toolbar versions: V4 or V5 can be set on Settings > Reading.
@@ -41,7 +41,7 @@ For web developers, Comfort+ is an excellent way to showcase the accessibility i
 
 = Privacy / GDPR =
 
-Neither this plugin nor the Orange Confort+ accessibility toolbar collect any user or visitor data. The Orange Confort+ accessibility toolbar V4 uses two functional browser cookies, used for storing user selected accessibility options.
+Neither this plugin nor the Orange Comfort+ accessibility toolbar collect any user or visitor data. The Orange Comfort+ accessibility toolbar V4 uses two functional browser cookies, used for storing user selected accessibility options.
 
 * UCI42 - Stores user toolbar settings; set at page load; domain specific; expires after 1 year.
 * uci-bl - Stores toolbar on/off toggle; set when toolbar toggle is used; domain specific; session only.
@@ -60,7 +60,7 @@ Toolbar version and position (V4 only) can be set on Settings > Reading.
 
 = Can I get a custom button location? =
 
-A shortcode **ocplus_button** is available for the toolbar V4, to allow giving the Orange Confort+ button a custom location. The shortcode will generate a Button block with one button "Confort +".
+A shortcode **ocplus_button** is available for the toolbar V4, to allow giving the Orange Comfort+ button a custom location. The shortcode will generate a Button block with one button "Comfort +".
 
 The toolbar V5 does not support the shortcode.
 
@@ -83,7 +83,7 @@ Please note: there can be only _one_ button on a web page and not all toolbar po
 
 == Screenshots ==
 
-1. The Orange Confort+ accessibility toolbar, V4
+1. The Orange Comfort+ accessibility toolbar, V4
 2. Enlarging characters, changing the fonts and the spacing in the text: useful for dyslexic users, users with vision problems, or simply subject to visual fatigue.
 3. Changing the layout, displaying a reading rule: mainly useful for visually impaired and cognitively impaired users who have difficulty identifying the information on the page, as well as motor disabled users who can’t use the mouse or those using keyboard navigation only.
 4. Choosing a custom palette for the text color and page background.
@@ -111,14 +111,14 @@ Toolbar version 5.
 
 = 0.7 =
 20250922
-* Orange Confort+ script version 4.3.6
+* Orange Comfort+ script version 4.3.6
 * Consent API wrapper script cache invalidation
 * Plugin action/meta links
 
 = 0.6 =
 20240702
 * Classes + autoload for modular file inclusion.
-* Orange Confort+ script version 4.3.5
+* Orange Comfort+ script version 4.3.5
 
 = 0.5 =
 20240629
@@ -139,4 +139,4 @@ Toolbar version 5.
 
 = 0.1 =
 20240605
-* Initial implementation, Orange Confort+ script version 4.3.3
+* Initial implementation, Orange Comfort+ script version 4.3.3

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=5UVXZVN5HDKBS
 Tags: accessibility, orange confort, confort+, WP Consent API
 Tested up to: 6.9
 Requires at least: 4.6
-Stable tag: 0.7.2
+Stable tag: 0.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,24 +75,30 @@ Please note: there can be only _one_ button on a web page and not all toolbar po
 
 == Screenshots ==
 
-1. The Orange Confort+ accessibility toolbar.
+1. The Orange Confort+ accessibility toolbar, V4
 2. Enlarging characters, changing the fonts and the spacing in the text: useful for dyslexic users, users with vision problems, or simply subject to visual fatigue.
 3. Changing the layout, displaying a reading rule: mainly useful for visually impaired and cognitively impaired users who have difficulty identifying the information on the page, as well as motor disabled users who can’t use the mouse or those using keyboard navigation only.
 4. Choosing a custom palette for the text color and page background.
 5. Advanced behavior tools and options.
 6. Toolbar admin options on Settings > Reading.
+7. Choosing your usage mode, V5
+8. Multi-click Buttons, V5
 
 == Upgrade Notice ==
 
-= 0.7.2 =
-Bugfix and security patch
+= 0.8.0 =
+Toolbar version 5.
 
 == Changelog ==
 
-= 0.7.2 =
+= 0.8.0 =
+20260204
+* Toolbar version 5.0.1
+* Version 4.3.6 optional
+
+= 0.7.1 =
 20260204
 * FIX Undefined function
-* FIX plugin basename
 * PATCH Unsanitized shortcode attribute; CVE-2026-1808 (Muhammad Yudha - DJ, Wordfence)
 
 = 0.7 =

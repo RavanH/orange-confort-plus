@@ -1,52 +1,53 @@
 <?php
 /**
- * Plugin Name: Orange Confort+ accessibility toolbar for WordPress
+ * Plugin Name: Orange Comfort+ accessibility toolbar for WordPress
  * Plugin URI:  https://status301.net/wordpress-plugins/orange-confort-plus/
- * Description: Add the Orange Confort+ accessibility toolbar to your WordPress site.
- * Version:     0.7.1
+ * Description: Add the Orange Comfort+ accessibility toolbar to your WordPress site.
+ * Version:     0.8.0
  * Text Domain: orange-confort-plus
  * Author:      RavanH
  * Author URI:  https://status301.net/
  * License:     GPL v2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
- * @package Orange Confort+
+ * @package Orange Comfort+
  */
 
 namespace OCplus;
 
-const VERSION        = '0.7.1';
-const SCRIPT_VERSION = '4.3.6';
+const PLUGIN_VERSION = '0.8.0';
+const PLUGIN_FILE    = __FILE__;
 
 \defined( 'WPINC' ) || die;
-\define( __NAMESPACE__ . '\BASENAME', \plugin_basename( __FILE__ ) );
 
-\add_action( 'init', __NAMESPACE__ . '\maybe_upgrade' );
-\add_action( 'admin_init', array( __NAMESPACE__ . '\Admin', 'settings' ) );
-\add_action( 'wp_enqueue_scripts', array( __NAMESPACE__ . '\Toolbar', 'script' ) );
-\add_action( 'wp_footer', array( __NAMESPACE__ . '\Toolbar', 'css' ) );
-\add_action( 'plugins_loaded', __NAMESPACE__ . '\register_cookies' );
-\add_filter( 'wp_consent_api_registered_' . BASENAME, '__return_true' );
-\add_shortcode( 'ocplus_button', array( __NAMESPACE__ . '\Shortcode', 'render' ) );
+\spl_autoload_register( __NAMESPACE__ . '\autoload' );
 
-/**
- * Register cookies.
- */
-function register_cookies() {
-	if ( \function_exists( 'wp_add_cookie_info' ) ) {
-		\wp_add_cookie_info( 'UCI42', \__( 'Orange Confort+', 'orange-confort-plus' ), 'functional', \__( '1 Year', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
-		\wp_add_cookie_info( 'uci-bl', \__( 'Orange Confort+', 'orange-confort-plus' ), 'functional', \__( 'Session', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
-	}
-}
+\add_action( 'init', __NAMESPACE__ . '\init', 9 );
+\add_action( 'admin_init', array( __NAMESPACE__ . '\Admin', 'init' ) );
 
 /**
  * Maybe upgrade or install.
  */
-function maybe_upgrade() {
+function init() {
+	/* Maybe upgrade */
 	$db_version = \get_option( 'oc_plus_version', '0' );
-	if ( 0 !== \version_compare( VERSION, $db_version ) ) {
+	if ( 0 !== \version_compare( PLUGIN_VERSION, $db_version ) ) {
 		include_once __DIR__ . '/upgrade.php';
 	}
+
+	$script_version = (string) \get_option( 'oc_plus_script_version', '4.3.6' );
+	if ( \function_exists( 'wp_add_cookie_info' ) && ( ! $script_version || \version_compare( $script_version, '5', '<' ) ) ) {
+		\wp_add_cookie_info( 'UCI42', \__( 'Orange Comfort+', 'orange-confort-plus' ), 'functional', \__( '1 Year', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
+		\wp_add_cookie_info( 'uci-bl', \__( 'Orange Comfort+', 'orange-confort-plus' ), 'functional', \__( 'Session', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
+	}
+
+	/* Hooks */
+	\add_action( 'wp_enqueue_scripts', array( __NAMESPACE__ . '\Toolbar', 'script' ) );
+	\add_action( 'wp_footer', array( __NAMESPACE__ . '\Toolbar', 'css' ) );
+	\add_filter( 'wp_consent_api_registered_' . \plugin_basename( PLUGIN_FILE ), '__return_true' );
+
+	/* Shortcode */
+	\add_shortcode( 'ocplus_button', array( __NAMESPACE__ . '\Shortcode', 'render' ) );
 }
 
 /**
@@ -76,5 +77,3 @@ function autoload( $class_name ) {
 		include $file;
 	}
 }
-
-\spl_autoload_register( __NAMESPACE__ . '\autoload' );

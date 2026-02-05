@@ -1,8 +1,8 @@
 <?php
 /**
- * Orange Confort+ uninstallation.
+ * Orange Comfort+ uninstallation.
  *
- * @package Orange Confort+
+ * @package Orange Comfort+
  *
  * @since 0.4
  */
@@ -12,12 +12,7 @@ namespace OCplus;
 \defined( 'WPINC' ) || die;
 
 // Check if it is a multisite and not a large one.
-if ( \is_multisite() ) {
-	if ( \wp_is_large_network() ) {
-		uninstall();
-		return;
-	}
-
+if ( \is_multisite() && ! \wp_is_large_network() ) {
 	$_ids = get_sites(
 		array(
 			'fields' => 'ids',
@@ -48,5 +43,6 @@ function uninstall( $_id = false ) {
 	 * Remove plugin settings.
 	 */
 	\delete_option( 'oc_plus_position' );
+	\delete_option( 'oc_plus_script_version' );
 	\delete_option( 'oc_plus_version' );
 }

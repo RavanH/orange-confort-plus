@@ -1,8 +1,8 @@
 <?php
 /**
- * Orange Confort+ admin class.
+ * Orange Comfort+ admin class.
  *
- * @package Orange Confort+
+ * @package Orange Comfort+
  *
  * @since 0.6
  */
@@ -16,29 +16,36 @@ class Admin {
 	/**
 	 * Settings.
 	 */
-	public static function settings() {
-		// Register setting.
+	public static function init() {
+		// Register settings.
+		\register_setting(
+			'reading',
+			'oc_plus_script_version',
+			array(
+				'type'    => 'string',
+				'default' => '4.3.6',
+			)
+		);
+
 		\register_setting(
 			'reading',
 			'oc_plus_position',
 			array(
 				'type'    => 'array',
 				'default' => array(),
-			),
+			)
 		);
 
 		// Add field.
 		\add_settings_field(
 			'oc_plus',
-			\__( 'Orange Confort+', 'orange-confort-plus' ),
+			\__( 'Orange Comfort+', 'orange-confort-plus' ),
 			array( __CLASS__, 'settings_field' ),
 			'reading'
 		);
 
-		/**
-		 * Plugin action links.
-		 */
-		\add_filter( 'plugin_action_links_' . BASENAME, array( __CLASS__, 'add_action_link' ) );
+		// Plugin action links.
+		\add_filter( 'plugin_action_links_' . \plugin_basename( PLUGIN_FILE ), array( __CLASS__, 'add_action_link' ) );
 		\add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2 );
 	}
 
@@ -68,7 +75,7 @@ class Admin {
 	 * @return array $links
 	 */
 	public static function plugin_meta_links( $links, $file ) {
-		if (  BASENAME === $file ) {
+		if ( \plugin_basename( PLUGIN_FILE ) === $file ) {
 			$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/orange-confort-plus/">' . \esc_html__( 'Support', 'xml-sitemaps-manager' ) . '</a>';
 			$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/orange-confort-plus/reviews/?filter=5#new-post">' . \esc_html__( 'Rate ★★★★★', 'xml-sitemaps-manager' ) . '</a>';
 		}
@@ -79,19 +86,32 @@ class Admin {
 	 * Settings field.
 	 */
 	public static function settings_field() {
-		$settings = (array) \get_option( 'oc_plus_position' );
-		$button   = isset( $settings['button'] ) ? $settings['button'] : '';
-		$toolbar  = isset( $settings['toolbar'] ) ? $settings['toolbar'] : '';
+		$script_v = (string) \get_option( 'oc_plus_script_version' );
+		$position = (array) \get_option( 'oc_plus_position' );
+		$button   = isset( $position['button'] ) ? $position['button'] : '';
+		$toolbar  = isset( $position['toolbar'] ) ? $position['toolbar'] : '';
 		?>
 <fieldset id="oc_plus">
 	<legend class="screen-reader-text">
-		<?php \esc_html_e( 'Orange Confort+', 'orange-confort-plus' ); ?>
+		<?php \esc_html_e( 'Orange Comfort+', 'orange-confort-plus' ); ?>
 	</legend>
+	<p>
+		<label>
+			<?php \esc_html_e( 'Accessibility toolbar version:', 'orange-confort-plus' ); ?>
+			<select name="oc_plus_script_version" id="oc_plus_script_version">
+				<option value="4.3.6"<?php \selected( '4.3.6', $script_v ); ?>>4.3.6</option>
+				<option value="5.0.1"<?php \selected( '5.0.1', $script_v ); ?>>5.0.1</option>
+			</select>
+		</label>
+	</p>
+	<?php if ( ! $script_v || \version_compare( $script_v, '5', '<' ) ) : ?>
 	<p>
 		<label>
 			<?php \esc_html_e( 'Accessibility toolbar position:', 'orange-confort-plus' ); ?>
 			<select name="oc_plus_position[toolbar]" id="oc_plus_toolbar_position">
-				<option value=""><?php \esc_html_e( 'Page top', 'orange-confort-plus' ); ?></option>
+				<?php if ( ! $script_v || \version_compare( $script_v, '5', '<' ) ) : ?>
+					<option value=""><?php \esc_html_e( 'Page top', 'orange-confort-plus' ); ?></option>
+				<?php endif; ?>
 				<option value="top"<?php \selected( 'top', $toolbar ); ?>><?php \esc_html_e( 'Window top', 'orange-confort-plus' ); ?></option>
 				<option value="bottom"<?php \selected( 'bottom', $toolbar ); ?>><?php \esc_html_e( 'Window bottom', 'orange-confort-plus' ); ?></option>
 			</select>
@@ -107,9 +127,14 @@ class Admin {
 		</label>
 	</p>
 	<p class="description">
-		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use the shortcode %1$s.', 'orange-confort-plus' ), '<code>[ocplus_button style="outline" color="black" bgcolor="" /]</code>' ); ?>
+		<?php \printf( /* translators: shortcode and ID examples */ \esc_html__( 'For a custom button position, use the shortcode %s.', 'orange-confort-plus' ), '<code>[ocplus_button color="white" bgcolor="black" /]</code>' ); ?>
 		<a href="https://wordpress.org/plugins/orange-confort-plus/#how%20to%20use%20the%20shortcode%3F" target="_blank"><?php \esc_html_e( 'Learn more about the shortcode.', 'orange-confort-plus' ); ?></a>
 	</p>
+	<?php else : ?>
+	<p class="description">
+		<?php \esc_html_e( 'The toolbar version 5+ is positioned in the top right or the browser window. For custom position options, select a script version below 5.0.', 'orange-confort-plus' ); ?>
+	</p>
+	<?php endif; ?>
 </fieldset>
 <script>
 if ( "#oc_plus" === window.location.hash ) {

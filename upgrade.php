@@ -1,8 +1,8 @@
 <?php
 /**
- * Orange Confort+ upgrade.
+ * Orange Comfort+ upgrade.
  *
- * @package Orange Confort+
+ * @package Orange Comfort+
  *
  * @since 0.4
  */
@@ -30,7 +30,15 @@ if ( '0' !== $db_version ) {
 			\update_option( 'oc_plus_position', $oc_settings );
 		}
 	}
+
+	// Keep previous version.
+	\add_option( 'oc_plus_script_version', '4.3.6' );
+	\add_option( 'oc_plus_position', array() );
+} else {
+	// Fresh install.
+	\add_option( 'oc_plus_script_version', '5.0.1' );
+	\add_option( 'oc_plus_position', array() );
 }
 
 // Update DB version.
-\update_option( 'oc_plus_version', VERSION );
+\update_option( 'oc_plus_version', PLUGIN_VERSION );

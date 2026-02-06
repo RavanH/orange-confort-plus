@@ -23,7 +23,7 @@ class Admin {
 			'oc_plus_script_version',
 			array(
 				'type'    => 'string',
-				'default' => '4.3.6',
+				'default' => DEFAULT_SCRIPT,
 			)
 		);
 

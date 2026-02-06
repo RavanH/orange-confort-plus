@@ -17,6 +17,7 @@ namespace OCplus;
 
 const PLUGIN_VERSION = '0.8.0';
 const PLUGIN_FILE    = __FILE__;
+const DEFAULT_SCRIPT = '5.0.1';
 
 \defined( 'WPINC' ) || die;
 
@@ -35,7 +36,7 @@ function init() {
 		include_once __DIR__ . '/upgrade.php';
 	}
 
-	$script_version = (string) \get_option( 'oc_plus_script_version', '4.3.6' );
+	$script_version = (string) \get_option( 'oc_plus_script_version', DEFAULT_SCRIPT );
 	if ( \function_exists( 'wp_add_cookie_info' ) && ( ! $script_version || \version_compare( $script_version, '5', '<' ) ) ) {
 		\wp_add_cookie_info( 'UCI42', \__( 'Orange Comfort+', 'orange-confort-plus' ), 'functional', \__( '1 Year', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );
 		\wp_add_cookie_info( 'uci-bl', \__( 'Orange Comfort+', 'orange-confort-plus' ), 'functional', \__( 'Session', 'orange-confort-plus' ), \__( 'Store user preferences.', 'orange-confort-plus' ) );

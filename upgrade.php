@@ -36,7 +36,7 @@ if ( '0' !== $db_version ) {
 	\add_option( 'oc_plus_position', array() );
 } else {
 	// Fresh install.
-	\add_option( 'oc_plus_script_version', '5.0.1' );
+	\add_option( 'oc_plus_script_version', DEFAULT_SCRIPT );
 	\add_option( 'oc_plus_position', array() );
 }
 

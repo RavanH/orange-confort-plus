@@ -26,7 +26,7 @@ class Toolbar {
 			$version = (string) \get_option( 'oc_plus_script_version' );
 
 			if ( ! $version || ! in_array( $version, array( '4.3.6', '5.0.1' ) ) ) {
-				$version = '4.3.6';
+				$version = DEFAULT_SCRIPT;
 			}
 
 			self::$version = $version;

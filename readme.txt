@@ -2,7 +2,7 @@
 Contributors: RavanH
 Donate link: https://www.paypal.com/donate/?hosted_button_id=5UVXZVN5HDKBS
 Tags: accessibility, Orange Comfort, Confort+, WP Consent API
-Tested up to: 6.9
+Tested up to: 7.0
 Requires at least: 4.6
 Stable tag: 0.8.0
 License: GPLv2 or later
